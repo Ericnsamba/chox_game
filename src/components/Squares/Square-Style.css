@@ -1,0 +1,40 @@
+.square {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #999;
+    padding: 0;
+    font-size: 24px; /* Adjust based on your layout */
+    font-weight: bold;
+    line-height: 60px; /* Adjust to match height for vertical centering */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .square:hover {
+    background-color: rgb(150, 150, 219); /* Light highlight for hover */
+  }
+  
+  .square:active {
+    background-color: #ddf; /* Slightly darker for click */
+  }
+  
+  .square img {
+    max-width: 28px;
+    max-height: 28px;
+  }
+  
+  /* Add a class for active squares if needed */
+  .active.square {
+    border-color: #f00; /* Red border for active squares */
+  }
+  
+  /* Adjustments for disabled squares, if you're disabling them */
+  /* .square:disabled,
+  .square:disabled:hover {
+    cursor: default;
+    background-color: #f19797;  Gray out disabled squares 
+    border-color: #aaa;  Darker border for disabled squares 
+  } */
+  

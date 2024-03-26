@@ -1,0 +1,102 @@
+.app {
+  text-align: center;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: fit-content;
+}
+
+.small-board {
+  display: grid;
+  grid-template-columns: repeat(3, 40px);
+  grid-gap: 2px;
+  background-color: aqua;
+  width: 124px;
+}
+
+.small-square {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #f8f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.status {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+.icon {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 40px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.button_wrapper {
+  display: flex;
+  padding: 24px;
+  gap: 10px;
+  border: 1px #000 solid;
+  border-radius: 16px 16px 0px 0px;
+  border-bottom: none;
+}
+
+button {
+  display: flex;
+  height: 60px;
+  padding: 16px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* flex: 1 0 0; */
+  border-radius: 4px;
+  border: 0;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.button_newGame {
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #3455ff;
+  color: #ffffff;
+  width: -webkit-fill-available;
+}
+
+.button_newGame:hover {
+  background: #546ef3;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.how_to_Play {
+  min-width: 180px;
+}

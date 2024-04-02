@@ -9,6 +9,7 @@ const Board = ({ smallBoards, onClick, activeBoard }: any) => (
         squares={squares}
         onClick={(i: number) => onClick(index, i)}
         activeSquare={activeBoard === index ? null : null}
+        isActive={activeBoard === index} // Pass isActive prop based on the activeBoard state
       />
     ))}
   </div>

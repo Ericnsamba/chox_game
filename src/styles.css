@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 95vh;
+  /* min-height: 95vh; */
 }
 
 .board {
@@ -15,24 +15,40 @@
   width: fit-content;
 }
 
+.small-board-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure it covers the entire board */
+  height: 100%; /* Ensure it covers the entire board */
+  z-index: -1; /* Keep it behind the content */
+}
+
 .small-board {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 40px);
-  grid-gap: 2px;
-  background-color: aqua;
-  width: 124px;
+  /* width: 124px; */
+  padding: 4px;
+}
+
+.small-board.active {
+  /* border: 1px solid #3455ff;
+  border-radius: 8px; */
 }
 
 .small-square {
   width: 32px;
   height: 32px;
-  border: 1px solid #f8f5f5;
+  border: 1px solid #ffd0d0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   cursor: pointer;
   border-radius: 8px;
+  /* position: relative; */
+  /* z-index: 1 */
 }
 
 .status {

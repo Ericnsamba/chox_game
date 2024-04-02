@@ -1,8 +1,12 @@
+button.square {
+  background: none;
+}
+
 .square {
     width: 40px;
     height: 40px;
-    background-color: #fff;
-    border: 1px solid #999;
+    /* background-color: #fff; */
+    /* border: 1px solid #f4e7e7; */
     padding: 0;
     font-size: 24px; /* Adjust based on your layout */
     font-weight: bold;
@@ -13,11 +17,11 @@
   }
   
   .square:hover {
-    background-color: rgb(150, 150, 219); /* Light highlight for hover */
+    /* background-color: rgb(150, 150, 219); Light highlight for hover */
   }
   
   .square:active {
-    background-color: #ddf; /* Slightly darker for click */
+    /* background-color: #ddf; Slightly darker for click */
   }
   
   .square img {

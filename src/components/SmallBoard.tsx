@@ -2,21 +2,21 @@ import React from "react";
 import Square from "./Squares/index";
 import Icon from "../assets/SVG icon/SmallBoard_svg";
 
-const SmallBoard = ({ squares, onClick, activeSquare, isActive, }: any) => {
+const SmallBoard = ({ squares, onClick, winner, isActive }: any) => {
+  const boardSquares = winner ? Array(9).fill(winner) : squares;
   const color = isActive ? "#3455ff" : "#CCCCCC"; 
-  
+
   return (
     <div className={`small-board ${isActive ? 'active' : ''}`}>
-    {squares.map((value: any, index: number) => (
-      <Square
-      key={index}
-      value={value}
-      onClick={() => onClick(index, console.log(" SmallBoard > Square", index))}
-      active={activeSquare === index}
-      />
+      {boardSquares.map((value: any, index: any) => (
+        <Square
+          key={index}
+          value={value}
+          onClick={() => onClick(index)} 
+          active={false}        />
       ))}
-      <Icon className="small-board-icon" color={color} /> 
-  </div>
+      <Icon className="small-board-icon" color={color} />
+    </div>
   );
 };
 

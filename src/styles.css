@@ -116,3 +116,22 @@ button {
 button.how_to_Play {
   min-width: 180px;
 }
+
+
+/* howToPlay */
+
+.howToPlay {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-items: center;
+  align-items: center;
+  padding: 24px;
+}
+
+ul.howToPlayList {
+  margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 32px;
+  color: #808080;
+}

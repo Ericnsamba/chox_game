@@ -3,13 +3,13 @@ import SmallBoard from './SmallBoard';
 
 const Board = ({ smallBoards, onClick, activeBoard }: any) => (
   <div className="board">
-    {smallBoards.map((squares: any, index: number) => (
+    {smallBoards.map((board: { squares: any; winner: any; }, index: any) => (
       <SmallBoard
         key={index}
-        squares={squares}
-        onClick={(i: number) => onClick(index, i)}
-        activeSquare={activeBoard === index ? null : null}
-        isActive={activeBoard === index} // Pass isActive prop based on the activeBoard state
+        squares={board.squares}
+        onClick={(squareIndex: any) => onClick(index, squareIndex)}
+        isActive={activeBoard === index}
+        winner={board.winner}
       />
     ))}
   </div>

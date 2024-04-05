@@ -11,7 +11,7 @@
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 8px;
   width: fit-content;
 }
 
@@ -68,9 +68,17 @@
   flex-direction: column;
   gap: 24px;
   margin-top: 40px;
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  position: relative;
+  background-color: #ffffff;
+}
+
+@media only screen and (min-width: 400px) {
+  .game-info {
+    position: absolute;
+    bottom: 0;
+    background-color: #ffffff;
+  }
 }
 
 .button_wrapper {
@@ -116,7 +124,6 @@ button {
 button.how_to_Play {
   min-width: 180px;
 }
-
 
 /* howToPlay */
 

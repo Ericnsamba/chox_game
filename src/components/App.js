@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-
-import Game from './Game'
+import React from "react";
+import styled from "styled-components";
+import GlobalStyle from "../utils/GlobalStyle";
+import Game from "./Game";
 
 // TODO: add adsense, para uma página poder receber adsense é preciso que haja algum conteudo textual nela (ideia: colocar conteudo abaixo da view port inicial (onde ficaria o game e anuncios))
 
@@ -10,22 +10,25 @@ import Game from './Game'
 
 export default function App(props) {
   return (
-    <Container>
-      <Game />
-    </Container>
-  )
+    <>
+      <GlobalStyle />
+      <Container>
+        <Game />
+      </Container>
+    </>
+  );
 }
 
 // TODO: tornar responsivo
-const Container = styled('div')`
-  height: 100vh;
-  width: 100vw;
 
+const Container = styled("div")`
+  height: 100vh;
+  width: 100%;
+  /* width: 100vw; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  font-family: 'Helvetica', Futura, sans-serif;
-  --square-size: 65px; /* FIXME: qualquer mudança requer mudanças nas fontes dos botoes */
-`
+  background-color: #000000;
+  font-family: "Helvetica", Futura, sans-serif;
+`;

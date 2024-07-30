@@ -135,27 +135,32 @@ const Game = (props) => {
     />
   );
 
+  const handleRestart = () => {
+    console.log("Restarting game...");
+    window.location.reload();
+  };
+
   return (
     <>
       <Header className="header">
         <Label>
           {winner ? (
-            winner === 'X' ? (
+            winner === "X" ? (
               <>
-                <IconX color="#0029FF" width={28} height={28}/> winner
+                <IconX color="#0029FF" width={28} height={28} /> winner
               </>
             ) : (
               <>
-                <IconO color="#ffffff" width={28} height={28}/> winner
+                <IconO color="#ffffff" width={28} height={28} /> winner
               </>
             )
-          ) : currPlayer === 'X' ? (
+          ) : currPlayer === "X" ? (
             <>
-              <IconX color="#0028FF" width={28} height={28}/> to play
+              <IconX color="#0028FF" width={28} height={28} /> to play
             </>
           ) : (
             <>
-              <IconO color="#ffffff" width={28} height={28}/> to play
+              <IconO color="#ffffff" width={28} height={28} /> to play
             </>
           )}
         </Label>
@@ -169,9 +174,18 @@ const Game = (props) => {
         <Row>{[3, 4, 5].map(renderBoard)}</Row>
         <Row>{[6, 7, 8].map(renderBoard)}</Row>
       </Container>
+      <ButtonWrapper className="">
+        <RestartButton onClick={handleRestart}>Restart Game</RestartButton>
+      </ButtonWrapper>
     </>
   );
 };
+
+// ================================
+// Styles 
+// ================================
+const Container = styled.div``;
+
 
 const Header = styled.h1`
   display: flex;
@@ -187,8 +201,6 @@ const Label = styled.h1`
   text-transform: uppercase;
 `;
 
-const Container = styled.div``;
-
 const BackgroudSvg = styled.div`
   position: absolute;
   z-index: 0;
@@ -196,6 +208,35 @@ const BackgroudSvg = styled.div`
 
 const Row = styled.div`
   display: flex;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  max-width: 374px;
+  width: 100%;
+  `;
+
+const RestartButton = styled.button`
+  padding: 16px 40px;
+  font-size: 16px;
+  background-color: #0029ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 1.3s ease;
+  width: 100%;
+
+  &:hover {
+    background-color: #001f99;
+  }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export default Game;

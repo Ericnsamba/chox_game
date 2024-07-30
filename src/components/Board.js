@@ -41,9 +41,14 @@ export default function Board({
         </OverlayedContainer>
       )} */}
 
-{(blocked || winner) && (
+      {(blocked || winner) && (
         <OverlayedContainer winner={winner}>
-          {winner && (winner === 'X' ? <IconX color="#0029FF" /> : <IconO color="#ffffff" />)}
+          {winner &&
+            (winner === "X" ? (
+              <IconX color="#0029FF" width={110} height={110} />
+            ) : (
+              <IconO color="#ffffff" width={110} height={110} />
+            ))}
         </OverlayedContainer>
       )}
     </Container>
@@ -100,15 +105,17 @@ const SquaresContainer = styled.div`
 const OverlayedContainer = styled("button").attrs({ disabled: true })`
   position: absolute;
   top: 0;
-  left: 0;
-  color: #fff;
+  /* left: 0; */
+  /* color: #fff; */
   border: none;
   text-align: center;
   font-size: 96px; /* TODO: unidade relativa */
   font-weight: 700;
   padding: 0;
-  height: calc(3 * 37px - 2px);
-  width: calc(3 * 37px - 2px);
+  width: 110px;
+  height: 110px;
+  /* height: calc(3 * 37px - 2px);
+  width: calc(3 * 37px - 2px); */
   z-index: 2;
 
   &:focus {
@@ -118,7 +125,7 @@ const OverlayedContainer = styled("button").attrs({ disabled: true })`
   &:disabled {
     opacity: 1;
     cursor: default;
-    /* background-color: black; */
+    
     background-color: ${(props) =>
       props.winner ? "#000" : "rgba(255, 255, 255, 0)"};
   }

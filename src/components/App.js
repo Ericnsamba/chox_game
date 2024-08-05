@@ -3,23 +3,18 @@ import styled from "styled-components";
 import GlobalStyle from "../utils/GlobalStyle";
 import Game from "./Game";
 
-// TODO: add adsense, para uma página poder receber adsense é preciso que haja algum conteudo textual nela (ideia: colocar conteudo abaixo da view port inicial (onde ficaria o game e anuncios))
-
 // TODO: feat: player vs player (local)
-// TODO: feat: player vs computer (local) - https://www.youtube.com/watch?v=trKjYdBASyQ - https://dev.to/nestedsoftware/tic-tac-toe-with-the-minimax-algorithm-5988 - https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/
-
 export default function App(props) {
   return (
     <>
       <GlobalStyle />
       <Container>
+        <Menu></Menu>
         <Game />
       </Container>
     </>
   );
 }
-
-// TODO: tornar responsivo
 
 const Container = styled("div")`
   height: 100vh;
@@ -31,4 +26,16 @@ const Container = styled("div")`
   align-items: center;
   background-color: #000000;
   font-family: "Helvetica", Futura, sans-serif;
+`;
+
+const Menu = styled("div")`
+  height: 98px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 10%);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
 `;

@@ -115,10 +115,13 @@ const Label = styled.h1`
   text-align: center;
   font-size: 32px;
   color: #ffffff;
-  text-transform: uppercase;
+  text-transform: capitalize;
   animation: ${(props) => props.winner && winnerAnimation} 1s infinite;
-  padding: 16px;
+  gap: 16px;
+    display: flex;
+    align-items: center;
   border-radius: 12px;
+  padding: 16px;
 `;
 
 const winnerAnimation = keyframes`

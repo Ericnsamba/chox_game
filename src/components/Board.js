@@ -24,23 +24,6 @@ export default function Board({
       <Row>{[0, 1, 2].map((s) => renderSquare(s))}</Row>
       <Row>{[3, 4, 5].map((s) => renderSquare(s))}</Row>
       <Row>{[6, 7, 8].map((s) => renderSquare(s))}</Row>
-      {/* {blocked || winner? <OverlayedContainer winner={winner}>{winner}</OverlayedContainer> : null} */}
-
-      {/* {(blocked || winner) && (
-         <OverlayedContainer winner={winner}>
-          {winner === 'X' ? <IconX color="#0029FF" width={109} height={109}/> : <IconO color="#ffffff"  width={109} height={109}/>}
-        </OverlayedContainer>  )} */}
-
-      {/* {(blocked || winner) && (
-        <OverlayedContainer winner={winner}>
-          {winner === "X" ? (
-            <IconX color="#0029FF" width={109} height={109} />
-          ) : (
-            <IconO color="#ffffff" width={109} height={109} />
-          )}
-        </OverlayedContainer>
-      )} */}
-
       {(blocked || winner) && (
         <OverlayedContainer winner={winner}>
           {winner &&
@@ -125,7 +108,7 @@ const OverlayedContainer = styled("button").attrs({ disabled: true })`
   &:disabled {
     opacity: 1;
     cursor: default;
-    
+
     background-color: ${(props) =>
       props.winner ? "#000" : "rgba(255, 255, 255, 0)"};
   }

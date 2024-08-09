@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "../utils/GlobalStyle";
 import Game from "./Game";
+import logo from '../assets/images/Logo512.png';
 
 // TODO: feat: player vs player (local)
 export default function App(props) {
@@ -9,7 +10,14 @@ export default function App(props) {
     <>
       <GlobalStyle />
       <Container>
-        <Menu></Menu>
+        <Menu>
+        <img src={logo} alt="Logo" height={60}/>
+        <div className="menuItems">
+          <a className="signleMenuItem" href="#about">Meet the makers</a>
+          {/* <a className="signleMenuItem" href="#contact">Contact</a> */}
+          {/* <RestartButton>New Game</RestartButton> */}
+        </div>
+        </Menu>
         <Game />
       </Container>
     </>
@@ -17,25 +25,46 @@ export default function App(props) {
 }
 
 const Container = styled("div")`
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
   /* width: 100vw; */
+  padding: 40px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #000000;
-  font-family: "Helvetica", Futura, sans-serif;
 `;
 
 const Menu = styled("div")`
-  height: 98px;
-  width: 80%;
+  /* width: 80%; */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 10%);
   backdrop-filter: blur(5px);
   border-radius: 12px;
+  padding: 16px;
+  gap: 100px;
+`;
+
+
+const RestartButton = styled.button`
+  padding: 16px 24px;
+  font-size: 16px;
+  background-color: #0029ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.8s ease;
+  width: 100%;
+
+  &:hover {
+    background-color: #001f99;
+  }
+
+  &:focus {
+    outline: none;
+  }
 `;

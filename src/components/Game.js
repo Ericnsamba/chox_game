@@ -4,12 +4,16 @@ import Board from "./Board";
 import LargeBoardSVG from "../assets/SVG icon/LargeBoardSVG";
 import IconO from "../assets/SVG icon/OIcon";
 import IconX from "../assets/SVG icon/XIcon";
+import { Toplay } from "./toPlay";
+import Button from "./Button";
+import HowToPlay from "./HowToPlay"; // Import HowToPlay component
 
 const Game = (props) => {
   const [boards, setBoards] = useState(new Array(9).fill(null));
   const [currPlayer, setCurrPlayer] = useState("X");
   const [winner, setWinner] = useState(null);
   const [unlockedBoard, setUnlockedBoard] = useState(null);
+  const [screen, setScreen] = useState("game"); // Add screen state
 
   const handleClickOnBoard = (b, squares, s) => {
     if (winner) return;
@@ -63,42 +67,54 @@ const Game = (props) => {
 
   return (
     <>
-      <Header className="header">
-        <Label winner={winner}>
-          {winner ? (
-            winner === 'X' ? (
-              <>
-                <IconX color="#0029FF" width={28} height={28}/> winner
-              </>
-            ) : (
-              <>
-                <IconO color="#ffffff" width={28} height={28}/> winner
-              </>
-            )
-          ) : currPlayer === 'X' ? (
-            <>
-              <IconX color="#0028FF" width={28} height={28}/> to play
-            </>
-          ) : (
-            <>
-              <IconO color="#ffffff" width={28} height={28}/> to play
-            </>
-          )}
-        </Label>
-      </Header>
-
-      <Container>
-        <BackgroudSvg>
-          <LargeBoardSVG color={"#fff"} />
-        </BackgroudSvg>
-        <Row>{[0, 1, 2].map(renderBoard)}</Row>
-        <Row>{[3, 4, 5].map(renderBoard)}</Row>
-        <Row>{[6, 7, 8].map(renderBoard)}</Row>
-      </Container>
-      {/* <RestartButton onClick={handleRestart}>Restart Game</RestartButton> */}
-      <ButtonWrapper className="">
-        <RestartButton onClick={handleRestart}>Restart Game</RestartButton>
-      </ButtonWrapper>
+      {screen === "game" ? (
+        <div className="game_container flex flex-col p-2 border-white border">
+          <div className="flex gap-2 items-start w-full mb-20">
+            <Button variant="primary" onClick={handleRestart} className="w-[140px]">
+              END GAME
+            </Button>
+            <Button variant="secondary" onClick={() => setScreen("howtoplay")}>
+              HOW TO PLAY
+            </Button>
+          </div>
+          <Container>
+            <BackgroudSvg>
+              <LargeBoardSVG color={"#fff"} />
+            </BackgroudSvg>
+            <Row>{[0, 1, 2].map(renderBoard)}</Row>
+            <Row>{[3, 4, 5].map(renderBoard)}</Row>
+            <Row>{[6, 7, 8].map(renderBoard)}</Row>
+          </Container>
+          {/* to play */}
+          <Header className="header">
+            <Label winner={winner}>
+              {winner ? (
+                winner === "X" ? (
+                  <>
+                    <IconX color="#0029FF" width={28} height={28} /> winner
+                  </>
+                ) : (
+                  <>
+                    <IconO color="#ffffff" width={28} height={28} /> winner
+                  </>
+                )
+              ) : currPlayer === "X" ? (
+                <>
+                  <IconX color="#0028FF" width={28} height={28} /> <Toplay />
+                </>
+              ) : (
+                <>
+                  <IconO color="#ffffff" width={28} height={28} /> <Toplay />
+                </>
+              )}
+            </Label>
+          </Header>
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-stretch w-full h-screen p-1">
+          <HowToPlay onClose={() => setScreen("game")} />
+        </div>
+      )}
     </>
   );
 };
@@ -107,8 +123,7 @@ const Header = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
-  
+  padding: 56px 0;
 `;
 
 const Label = styled.h1`
@@ -117,11 +132,10 @@ const Label = styled.h1`
   color: #ffffff;
   text-transform: capitalize;
   animation: ${(props) => props.winner && winnerAnimation} 1s infinite;
-  gap: 16px;
-    display: flex;
-    align-items: center;
+  gap: 20px;
+  display: flex;
+  align-items: center;
   border-radius: 12px;
-  padding: 16px;
 `;
 
 const winnerAnimation = keyframes`
@@ -143,35 +157,5 @@ const BackgroudSvg = styled.div`
 const Row = styled.div`
   display: flex;
 `;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  max-width: 374px;
-  width: 100%;
-  `;
-
-const RestartButton = styled.button`
-  padding: 16px 40px;
-  font-size: 16px;
-  background-color: #0029ff;
-  color: #ffffff;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.8s ease;
-  width: 100%;
-
-  &:hover {
-    background-color: #001f99;
-  }
-
-  &:focus {
-    outline: none;
-  }
-`;
-
 
 export default Game;

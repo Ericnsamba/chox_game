@@ -1,12 +1,13 @@
-import { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-  body {
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #000000;
     font-family: "Space Grotesk", sans-serif;
+    /* max-width: 420px;
+    display: flex;
+    align-items: center;
+    flex-direction: column; */
   }
 
   *, *::before, *::after {
@@ -25,6 +26,20 @@ const GlobalStyle = createGlobalStyle`
     text-transform: uppercase;
     font-size: 16px;
 }
-`;
+.game_container{
+  border-top-left-radius: 8px; 
+  border-top-right-radius: 8px; 
+}
 
-export default GlobalStyle;
+/* At the top level of your code */
+@media screen and (max-width: 600px) {
+  .game_container{
+   width: 100%;
+   /* justify-content: center; */
+   align-items: center
+  }
+}
+  
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

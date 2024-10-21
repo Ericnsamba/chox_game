@@ -156,7 +156,7 @@ const HowToPlay: React.FC<HowToPlayProps> = ({ onClose }) => {
         </Button>
         <Button
           variant="primary"
-          className={`w-2/4 ${
+          className={`w-2/4 bg-white ${
             currentStep === steps.length - 1
               ? "opacity-50 cursor-not-allowed"
               : "hover:bg-gray-300"

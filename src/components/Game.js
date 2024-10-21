@@ -70,7 +70,7 @@ const Game = (props) => {
       {screen === "game" ? (
         <div className="game_container flex flex-col p-2 border-white border">
           <div className="flex gap-2 items-start w-full mb-20">
-            <Button variant="primary" onClick={handleRestart} className="w-[140px]">
+            <Button variant="primary" onClick={handleRestart} className="w-[140px] bg-white">
               END GAME
             </Button>
             <Button variant="secondary" onClick={() => setScreen("howtoplay")}>
